@@ -1,5 +1,6 @@
 package com.example.hw4_favoriteanimal
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -13,5 +14,12 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.main_container, AnimalImage())
             .addToBackStack(null)
             .commit()
+
+        if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.animal_rating, AnimalRating())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 }
