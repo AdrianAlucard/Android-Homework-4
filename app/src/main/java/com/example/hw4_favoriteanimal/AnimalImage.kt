@@ -9,7 +9,7 @@ import android.view.ViewGroup
 /**
  * A simple [Fragment] subclass.
  */
-class animal_image : Fragment() {
+class AnimalImage : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
