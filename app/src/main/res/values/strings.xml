@@ -3,7 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="your_rating">Your Rating:</string>
+    <string name="your_rating">Your Rating: 4.0</string>
     <string name="rate_title">Rate Your Favorite Animal</string>
     <string name="please_select_img_text">Press on the images below to rate your favorite animal</string>
 </resources>
