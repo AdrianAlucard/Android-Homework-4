@@ -77,8 +77,10 @@ class AnimalRating : Fragment() {
         }
         Log.d(TAG, "Animal Preference list before save $animalList")
         for(savedAnimal in animalList) {
-            if(savedAnimal.name == animal.name)
-                animalList.remove(animal)
+            if(savedAnimal.name == animal.name) {
+                animalList.remove(savedAnimal)
+                break
+            }
         }
         animalList.add(animal)
         Log.d(TAG, "Animal Preference list after save $animalList")
