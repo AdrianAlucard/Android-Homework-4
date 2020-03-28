@@ -23,7 +23,6 @@ class AnimalImage : Fragment() {
     private val TAG = "AnimalImageFragment"
     private val FILE_NAME = "AnimalRatings"
     private val LIST = "AnimalList"
-    private var animalList = mutableListOf<AnimalDetails>()
     private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(
@@ -44,17 +43,23 @@ class AnimalImage : Fragment() {
         var rabbitRatingTextView = view.rabbit_rating_text.id
         var bearRatingTextView = view.beart_rating_text.id
 
-//        val sharedPreferences = activity!!.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
-//        val animals = sharedPreferences.getString(FILE_NAME, "") ?: ""
-//
-//        if(animals.isNotEmpty()) {
-//            val sType = object : TypeToken<MutableList<AnimalDetails>>() {}.type
-//            val savedAnimalList = Gson().fromJson<MutableList<AnimalDetails>>(animals, sType)
-//            animalList.addAll(savedAnimalList)
-//            for(animal in animalList) {
-//
-//            }
-//        }
+        val sharedPreferences = activity!!.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
+        val animals = sharedPreferences.getString(LIST, "") ?: ""
+
+        if(animals.isNotEmpty()) {
+            val sType = object : TypeToken<MutableList<AnimalDetails>>() {}.type
+            val savedAnimalList = Gson().fromJson<MutableList<AnimalDetails>>(animals, sType)
+            var animalList = mutableListOf<AnimalDetails>()
+
+            animalList.addAll(savedAnimalList)
+            Log.d(TAG, "Saved preference animal list $animalList")
+            for(animal in animalList) {
+                val textView = activity?.findViewById<TextView>(animal.textView)
+                if(textView != null) {
+                    textView.text = "Your Rating: ${animal.rating}"
+                }
+            }
+        }
 
 
         view.cat_image.setOnClickListener{ view -> imageClick(view, catImageTextView, viewModel, "Cat")  }
