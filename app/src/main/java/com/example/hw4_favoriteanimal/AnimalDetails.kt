@@ -1,3 +1,5 @@
 package com.example.hw4_favoriteanimal
 
-data class AnimalDetails(var name: String, var rating: Double, var imageId: Int)
+import android.widget.TextView
+
+data class AnimalDetails(var name: String, var rating: Float, var imageId: Int, var textView: Int)

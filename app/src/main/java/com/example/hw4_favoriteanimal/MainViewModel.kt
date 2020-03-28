@@ -5,5 +5,6 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel: ViewModel() {
 
-    val animals = MutableLiveData<AnimalDetails>()
+    val animalToRatingFrag = MutableLiveData<AnimalDetails>()
+    val animalToImageFrag = MutableLiveData<AnimalDetails>()
 }
